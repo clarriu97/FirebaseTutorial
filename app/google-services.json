@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "86791278929",
+    "firebase_url": "https://fir-tutorial-ec70d.firebaseio.com",
+    "project_id": "fir-tutorial-ec70d",
+    "storage_bucket": "fir-tutorial-ec70d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86791278929:android:f483a1e8019d72e6b44370",
+        "android_client_info": {
+          "package_name": "larriu.workshop.firebasetutorial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86791278929-60tpds5kdjck86aq4qan99nv406isp1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq2BLziwURZZED39UJ6HnB5fBGrPaoZjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86791278929-60tpds5kdjck86aq4qan99nv406isp1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
