@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 enum  ProviderType {
     BASIC,
@@ -23,7 +24,7 @@ enum  ProviderType {
 public class HomeActivity extends AppCompatActivity {
 
     private String email, provider;
-    private Button logoutButton;
+    private Button logoutButton, errorButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         logoutButton = findViewById(R.id.logoutButton);
+        errorButton = findViewById(R.id.errorButton);
 
         Bundle bundle = getIntent().getExtras().getBundle("bundle");
         email = bundle.getString("email");
@@ -51,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.proveedorTextView)).setText(provider);
 
         logoutButton.setOnClickListener(new LogOutButtonListener());
+        errorButton.setOnClickListener(new ErrorButtonListener());
     }
 
     private class LogOutButtonListener implements View.OnClickListener {
@@ -78,4 +81,18 @@ public class HomeActivity extends AppCompatActivity {
         finish();
     }
 
+    private class ErrorButtonListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            //Envio de información adicional
+            FirebaseCrashlytics.getInstance().setUserId(email);
+            FirebaseCrashlytics.getInstance().setCustomKey("provider", provider);
+
+            //Enviar log de contexto
+            FirebaseCrashlytics.getInstance().log("Se ha pulsado el botón FORZAR ERROR");
+
+            //Forzar error
+            //throw new RuntimeException("Forzado de error");
+        }
+    }
 }
