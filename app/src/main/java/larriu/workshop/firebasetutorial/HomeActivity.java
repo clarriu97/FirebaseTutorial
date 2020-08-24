@@ -53,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.proveedorTextView)).setText(provider);
 
         logoutButton.setOnClickListener(new LogOutButtonListener());
+
         errorButton.setOnClickListener(new ErrorButtonListener());
     }
 
